@@ -1,0 +1,16 @@
+{
+  "name": "bun_cli",
+  "module": "index.ts",
+  "type": "module",
+  "version": "0.0.1",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/yargs": "^17.0.32",
+    "yargs": "^17.7.2"
+  }
+}
