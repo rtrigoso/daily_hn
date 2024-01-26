@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "bundler",
     "moduleDetection": "force",
     "allowImportingTsExtensions": true,
     "noEmit": true,
+    "noImplicitAny": false,
     "composite": true,
     "strict": true,
     "downlevelIteration": true,
@@ -20,6 +24,8 @@
     ],
     "paths": {
       "@/libs/*": ["./app/libs/*"],
+      "@/utils/*": ["./app/utils/*"],
+      "@/*": ["./app/*"]
     }
   }
 }
