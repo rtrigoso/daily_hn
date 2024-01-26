@@ -1,3 +1,5 @@
+import { parse } from "./article";
+
 const fetchConfig = {
     headers: {
         "Accept-Encoding": "gzip, deflate",
@@ -27,5 +29,22 @@ export async function getCurrentBestStory () {
         title,
         url,
         time
+    }
+}
+
+export async function getCalculatedBestStory () {
+    const topStoriesURL = 'http://hn.elijames.org/';
+    let response = await fetch(topStoriesURL, { ...fetchConfig, headers: {
+        ...fetchConfig.headers,
+        'Content-Type': "text/html; charset=utf-8"
+    }});
+    const htmlString = await response.text();
+    const doc = parse(htmlString);
+    const linkTag = doc.querySelector('.row .active a') as unknown as HTMLAnchorElement;
+
+    return {
+        url: linkTag?.href || '',
+        title: linkTag?.textContent || '',
+        time: 0
     }
 }

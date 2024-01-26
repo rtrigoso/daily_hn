@@ -1,4 +1,4 @@
-import { getCurrentBestStory } from "@/utils/hn";
+import { getCurrentBestStory, getCalculatedBestStory } from "@/utils/hn";
 import { expect, test, describe, mock, afterEach, beforeEach } from "bun:test";
 import { mockFetch } from "../helpers";
 
@@ -14,7 +14,7 @@ const mockStoryResponse = {
     "url" : "http://www.getdropbox.com/u/2/screencast.html"
 };
 
-global.Date.prototype.getUTCHours = mock(() => 1),
+global.Date.prototype.getDay = mock(() => 1),
 
 describe('hn', () => {
     describe('getCurrentBestStory', () => {
